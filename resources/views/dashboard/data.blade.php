@@ -102,7 +102,7 @@ $(function() {
 });
 
 function deletesData(id) {
-
+	
 	$('#id').val(id);
 	$('#exampleModal').modal('show');
 
