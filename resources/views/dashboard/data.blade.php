@@ -16,7 +16,10 @@
 
 @section('content') 
 
-<form action="{{route('creates')}}" method="post">
+<button id="buttoncreate"> Create </button>
+
+
+<form id="create" action="{{route('creates')}}" method="post" hidden>
 	{{ csrf_field() }}
 
 	<input type="text" name="nomor" placeholder="nomor">
@@ -24,7 +27,7 @@
 	<input type="text" name="isi" placeholder="isi">
 	<input type="text" name="keterangan" placeholder="keterangan">
 
-	<button id="creates"> submit </button>
+	<button> submit </button>
 </form>
 
 <div class="container-fluid">
@@ -37,8 +40,10 @@
 					<th>Nomor</th>
 					<th>Judul</th>
 					<th>Isi</th>
-					<th>Keterangan</th>
-					<th>action</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Password</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 		</table>
@@ -89,15 +94,21 @@ $(function() {
 			{ data: 'nomor', name: 'nomor' },
             { data: 'judul', name: 'judul' },
             { data: 'isi', name: 'isi' },
-            { data: 'keterangan', name: 'keterangan' },
+
+            { data: 'name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'password', name: 'password' },
 			{ data: 'action', name: 'action' }
 
 			]
     });
 
     $('#buttoncreate').click(function(){
-    	
-    	$("#create").removeAttr('hidden');
+    	if ($("#create").attr('hidden')) {
+    			$("#create").removeAttr('hidden');
+    	} else {
+    			$("#create").attr('hidden');
+    	}
     })
 });
 

@@ -14,6 +14,7 @@
 	}
 
 
+
     </style>
 @endsection
 
@@ -33,7 +34,7 @@
 		<form action="{{route('create')}}" method="post">
 			{{ csrf_field() }}
 			<input type="text" name="name" placeholder="nama">
-			<input type="text" name="username" placeholder="username">
+			<input type="text" name="name" placeholder="username">
 			<input type="text" name="email" placeholder="email">
 			<input type="text" name="password" placeholder="password">
 
@@ -48,7 +49,6 @@
 			<thead>
 				<tr>
 					<th>Nama</th>
-					<th>Username</th>
 					<th>Email</th>
 					<th>Password</th>
 					<th>action</th>
@@ -70,7 +70,6 @@ $(function() {
         columns: [
 			
 			{ data: 'name', name: 'name' },
-            { data: 'username', name: 'username' },
             { data: 'email', name: 'email' },
             { data: 'password', name: 'password' },
 			{ data: 'action', name: 'action' }

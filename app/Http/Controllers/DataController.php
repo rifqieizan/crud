@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Data;
+use App\Model\Data;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Facades\Datatables;
@@ -68,11 +69,17 @@ class DataController extends Controller
         //
     }
 
-        public function bookingData()
+    public function bookingData()
     {
-        $data = Data::get();
+        $data = Data::Join('users','users.id','=','data.user_id')->get();
+        // right join
+        //$data = Data::rightJoin('users','users.id','=','data.user_id')->get();
+        // left join
+        //$data = Data::leftJoin('users','users.id','=','data.user_id')->get();
         return Datatables::of($data)->addColumn('action', function($data) {
              return '
+                     <a href="' .route("edit",$data->id) .'" class="btn btn-xs btn-primary">
+                        <i class="glyphicon glyphicon-edit"></i> Read</a>
                     <a href="' .route("edit",$data->id) .'" class="btn btn-xs btn-primary">
                         <i class="glyphicon glyphicon-edit"></i> Edit</a>
                     <a onclick="javascript:deletesData('.$data->id.')" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>Delete</a>';

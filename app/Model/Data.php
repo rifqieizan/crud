@@ -14,31 +14,35 @@ class Data extends Model
      * @var array
      */
     protected $fillable = [
-        'nomor', 'judul' ,'isi', 'keterangan',
+        'nomor', 'judul' ,'isi', 'keterangan','user_id'
     ];
 
     public function setAtribute($atribute)
     {
-    	if (isset($atribute['nomor'])) {
-    		# code...
-    		$this->name=$atribute['nomor'];
-    	}
+        if (isset($atribute['nomor'])) {
+            # code...
+            $this->nomor=$atribute['nomor'];
+        }
 
-    	if (isset($atribute['judul'])) {
-    		# code...
-    		$this->username=$atribute['judul'];
-    	}
+        if (isset($atribute['judul'])) {
+            # code...
+            $this->judul=$atribute['judul'];
+        }
 
 
-    	if (isset($atribute['isi'])) {
-    		# code...
-    		$this->email=$atribute['isi'];
-    	}
+        if (isset($atribute['isi'])) {
+            # code...
+            $this->isi=$atribute['isi'];
+        }
 
-    	if (isset($atribute['keterangan'])) {
-    		# code...
-    		$this->password=$atribute['keterangan'];
-    	}
+        if (isset($atribute['keterangan'])) {
+            # code...
+            $this->keterangan=$atribute['keterangan'];
+        
+        }if (isset($atribute['user_id'])) {
+            # code...
+            $this->user_id=$atribute['user_id'];
+        }
     } 
 
    
